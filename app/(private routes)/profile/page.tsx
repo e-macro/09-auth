@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import css from './ProfilePage.module.css'
 import { getServerMe } from '@/lib/serverApi';
+import Image from 'next/image';
 
 const Profile = async () => {
   const user = await getServerMe()
@@ -14,7 +15,7 @@ const Profile = async () => {
 	     </Link>
 	   </div>
      <div className={css.avatarWrapper}>
-      <img
+      <Image
         src={user.avatar}
         alt="User Avatar"
         width={120}
