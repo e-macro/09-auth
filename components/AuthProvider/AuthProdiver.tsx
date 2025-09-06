@@ -2,7 +2,7 @@
 
 'use client';
 
-import { checkServerSession, getServerMe } from '../../lib/serverApi';
+import { checkServerSession, getServerMe } from '../../lib/api/serverApi';
 import { useAuthStore } from '../../lib/store/authStore';
 import { useEffect } from 'react';
 

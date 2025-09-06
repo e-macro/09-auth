@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import css from './SignInPage.module.css'
-import { login, LoginRequest } from '@/lib/clientApi';
+import { login, LoginRequest } from '@/lib/api/clientApi';
 import { isAxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/lib/store/authStore';

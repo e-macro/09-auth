@@ -7,7 +7,7 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import { useRouter } from "next/navigation";
 import {useQuery, keepPreviousData} from "@tanstack/react-query";
 import {useDebouncedCallback} from "use-debounce";
-import {fetchNotes, type NoteResponse } from "@/lib/clientApi";
+import {fetchNotes, type NoteResponse } from "@/lib/api/clientApi";
 import {useState} from "react";
 import css from "./NotesPage.module.css";
 
