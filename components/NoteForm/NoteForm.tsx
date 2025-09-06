@@ -2,7 +2,7 @@
 import css from './NoteForm.module.css';
 // import {Formik, Form, ErrorMessage, Field} from 'formik';
 // import * as Yup from 'yup';
-import {createNote, type CreateNoteParams } from '@/lib/api';
+import {createNote, type CreateNoteParams } from '@/lib/clientApi';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useNoteDraftStore } from '@/lib/store/noteStore';
@@ -25,7 +25,7 @@ export default function NoteForm() {
     const createNoteMutation = useMutation({
     mutationFn: createNote,
     onSuccess: () => {
-      clearDraft()
+      clearDraft();
       client.invalidateQueries({ queryKey: ['notes'] });
       router.back();
     },
