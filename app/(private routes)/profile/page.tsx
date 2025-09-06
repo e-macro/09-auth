@@ -2,6 +2,28 @@ import Link from 'next/link';
 import css from './ProfilePage.module.css'
 import { getServerMe } from '@/lib/serverApi';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const user = await getServerMe();
+  return {
+    title: `${user.username} - NoteHub`,
+    description: `Profile page of ${user.username}`,
+    openGraph: {
+      title: `${user.username} - NoteHub`,
+      description: `Profile page of ${user.username}`,
+      url: `https://notehub.example.com/profile/${user.id}`,
+      images: [
+        {
+          url: user.avatar,
+          width: 1200,
+          height: 630,
+          alt: `${user.username}'s Avatar`,
+        },
+      ],
+    },
+  };
+}
 
 const Profile = async () => {
   const user = await getServerMe()

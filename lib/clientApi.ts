@@ -70,7 +70,6 @@ export const fetchNotes = async (page: number, query: string, tag?: string): Pro
 export const fetchNoteById = async (id: string): Promise<Note> => {
     const res = await nextServer.get<Note>(`/notes/${id}`, {headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`
     }});
     return res.data;
 }
@@ -79,7 +78,6 @@ export const createNote = async (newNote: CreateNoteParams): Promise<Note> => {
     
     const res = await nextServer.post<Note>('/notes', newNote, {headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
     }});
     return res.data;
 }
@@ -87,7 +85,6 @@ export const createNote = async (newNote: CreateNoteParams): Promise<Note> => {
 export const deleteNote = async (id: string): Promise<Note> => {
     const res = await nextServer.delete<Note>(`/notes/${id}`, {headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
     }})
     return res.data;
 }

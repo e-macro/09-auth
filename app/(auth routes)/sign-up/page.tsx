@@ -7,7 +7,6 @@ import {register, RegisterRequest} from '@/lib/clientApi'
 import { useAuthStore } from '@/lib/store/authStore';
 import { isAxiosError } from 'axios';
 
-
 const SignUp = () => {
   const router = useRouter();
   const [error, setError] = useState('');
