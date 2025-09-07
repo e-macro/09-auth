@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: `${user.username} - NoteHub`,
       description: `Profile page of ${user.username}`,
-      url: `https://notehub.example.com/profile/${user.id}`,
+      url: `https://notehub.example.com/profile`,
       images: [
         {
           url: user.avatar,
