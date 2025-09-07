@@ -27,8 +27,13 @@ export type UpdateMeRequest = {
     username?: string,
 }
 
+export const checkSession = async () => {
+    const res = await nextServer.get('/auth/session');
+    return res;
+};
+
 export const getMe = async () => {
-  const res = await nextServer.get('users/me');
+  const res = await nextServer.get<User>('users/me');
   return res.data;
 };
 

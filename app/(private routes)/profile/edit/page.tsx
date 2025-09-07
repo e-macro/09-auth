@@ -5,9 +5,10 @@ import css from './EditProfilePage.module.css'
 import { getMe, updateMe } from '@/lib/api/clientApi';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/lib/store/authStore';
 
 const EditProfile =  () => {
-
+    const setUser = useAuthStore((state) => state.setUser);
     const [userEmail, setUserEmail] = useState('');
     const [username, setUsername] = useState('');
     const [avatarUrl, setAvatarUrl] = useState('');
@@ -29,6 +30,7 @@ const EditProfile =  () => {
       e.preventDefault();
       try {
         await updateMe({username});
+        setUser({username, email: userEmail, avatar: avatarUrl});
         router.push('/profile');
       } catch (error) {
         console.log('Error updating profile:', error);
